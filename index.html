@@ -1,57 +1,103 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
+    <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+
     <title>High-Performance Computing using Campus Cluster by uiuc-cse</title>
-
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
   </head>
+
   <body>
-    <div class="wrapper">
-      <header>
+
+    <header>
+      <div class="container">
         <h1>High-Performance Computing using Campus Cluster</h1>
-        <p></p>
+        <h2></h2>
 
-        <p class="view"><a href="https://github.com/uiuc-cse/hpc-sp14">View the Project on GitHub <small>uiuc-cse/hpc-sp14</small></a></p>
+        <section id="downloads">
+          <a href="https://github.com/uiuc-cse/hpc-sp14/zipball/master" class="btn">Download as .zip</a>
+          <a href="https://github.com/uiuc-cse/hpc-sp14/tarball/master" class="btn">Download as .tar.gz</a>
+          <a href="https://github.com/uiuc-cse/hpc-sp14" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+        </section>
+      </div>
+    </header>
 
-
-        <ul>
-          <li><a href="https://github.com/uiuc-cse/hpc-sp14/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/uiuc-cse/hpc-sp14/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/uiuc-cse/hpc-sp14">View On <strong>GitHub</strong></a></li>
-        </ul>
-      </header>
-      <section>
+    <div class="container">
+      <section id="main_content">
         <h2>
 <a name="introduction-to-hpc" class="anchor" href="#introduction-to-hpc"><span class="octicon octicon-link"></span></a>Introduction to HPC</h2>
 
-<p>This short course will introduce you to the basic practical principles of high-performance computing (HPC) using the University of Illinois Campus Cluster.  Topics will include MPI, the job queue, the module system, and other aspects those new to cluster computing need to navigate and deploy their programs.</p>
+<h3>
+<a name="who-this-is-for" class="anchor" href="#who-this-is-for"><span class="octicon octicon-link"></span></a>Who this is for:</h3>
 
-<p>This course is not an introduction to parallel programming, nor is it intended to replace courses such as CS 420 which introduce parallel programming concepts.  We will discuss aspects of MPI and OpenMP programming, but this course is strongly oriented towards accomplishing basic practical tasks which engineering students and researchers may encounter.</p>
+<p>This seminar is intended for students with prior programming experience (i.e., who are comfortable with basic idioms like for statements and compiling and linking code) but who aren't certain where to begin using a cluster.  We will attempt to give you the lay of the land of HPC:  the basic conventions, architectural assumptions, and computer science background necessary to follow a high-level discussion on supercomputing.</p>
+
+<h3>
+<a name="who-this-is-not-for" class="anchor" href="#who-this-is-not-for"><span class="octicon octicon-link"></span></a>Who this is not for:</h3>
+
+<p>If you have been working comfortably on clusters in the past, you are probably already familiar with most of the terminology, conventions, and utilities which we will discuss.</p>
+
+<p>If you have very little programming experience, you should focus on mastering serial programming in the language of your choice before parallelism complicates things.  (If you are interested in scientific programming and don't have a reason to choose one language over another, Python is an excellent place to start; C, C++, and Fortran are strong alternatives, particularly if you need parallelism.)  If you are not comfortable in Linux and the command line, you may consider the CSE Training workshop on the Linux command line, also offered in Spring 2014.</p>
 
 <h2>
-<a name="course-notes--exercises" class="anchor" href="#course-notes--exercises"><span class="octicon octicon-link"></span></a>Course Notes &amp; Exercises</h2>
+<a name="agenda" class="anchor" href="#agenda"><span class="octicon octicon-link"></span></a>Agenda</h2>
 
-<p>We will use the <a href="http://meetingwords.com/ehlagqUook">Etherpad</a> to share complicated snippets of code and text during class.  The Post-It notes are to indicate either your completion of a task (green) or your need of assistance (pink).</p>
+<p><em>Day 1</em></p>
 
-<h2>
-<a name="first-section-1213-march" class="anchor" href="#first-section-1213-march"><span class="octicon octicon-link"></span></a>First Section (12–13 March)</h2>
+<ul>
+<li>Campus Cluster background</li>
+<li>Logging in and first look</li>
+<li>Shells &amp; architecture, environment</li>
+<li>What is HPC?
 
-<h2>
-<a name="second-section-1920-march" class="anchor" href="#second-section-1920-march"><span class="octicon octicon-link"></span></a>Second Section (19–20 March)</h2>
+<ul>
+<li>Strategies:  vectorization, distributed computing, local threading</li>
+<li>Architecture</li>
+<li>Performance</li>
+</ul>
+</li>
+<li>Running code on a cluster
+
+<ul>
+<li>Queueing</li>
+<li>Campus Cluster operations model</li>
+<li><code>mpiexec</code></li>
+</ul>
+</li>
+</ul><p><em>Day 2</em></p>
+
+<ul>
+<li>Scientific Coding and HPC
+
+<ul>
+<li>Compiling &amp; building (<code>gcc</code>, <code>make</code>)</li>
+<li>Examples:  OpenMP, MPI, GNU SSL, Intel MKL</li>
+<li>Code organization &amp; data management best practices</li>
+<li>Responsible cluster use</li>
+<li>Language support and libraries for HPC</li>
+<li>Debugging (<code>gdb</code>, <code>valgrind</code>, numerical error)</li>
+<li>Numerical error
+
+<ul>
+<li>Machine representation</li>
+<li>Truncation error and modified equations</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Setting up Campus Cluster to be friendlier</li>
+</ul><h2>
+<a name="hpc-and-campus-cluster-links" class="anchor" href="#hpc-and-campus-cluster-links"><span class="octicon octicon-link"></span></a>HPC and Campus Cluster Links</h2>
+
+<p><a href="https://campuscluster.illinois.edu/user_info/doc/beginner.html">Beginner's Guide to Campus Cluster</a>
+<a href="https://campuscluster.illinois.edu/user_info/doc/index.html">User's Guide to Campus Cluster</a></p>
       </section>
-      <footer>
-        <p>This project is maintained by <a href="https://github.com/uiuc-cse">uiuc-cse</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
-      </footer>
     </div>
-    <script src="javascripts/scale.fix.js"></script>
+
     
   </body>
 </html>
